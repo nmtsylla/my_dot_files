@@ -18,6 +18,7 @@ fi
 alias ll='ls -al'
 
 use_color=false
+export JAVA_HOME='/opt/jdk'
 
 # Set colorful PS1 only on colorful terminals.
 # dircolors --print-database uses its own built-in database
@@ -39,7 +40,7 @@ if ${use_color} ; then
                 if [[ -f ~/.dir_colors ]] ; then
                         eval $(dircolors -b ~/.dir_colors)
                 elif [[ -f /etc/DIR_COLORS ]] ; then
-                        eval $(dircolors -b /etc/DIR_COLORS)
+.                         eval $(dircolors -b /etc/DIR_COLORS)
 		else
 			eval $(dircolors)
                 fi
@@ -93,12 +94,6 @@ if [ -x /usr/lib/command-not-found ]; then
 	}
 fi
 
-#/usr/bin/mint-fortune
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-
 ##### CUSTOM STARTS HERE #####
 
 ### FUNCTIONS
@@ -151,6 +146,7 @@ alias du='du -h -c'
 alias reload='source ~/.bashrc'
 alias biggest='BLOCKSIZE=1048576; du -x | sort -nr | head -10'
 alias sd='sudo '
+
 ## Moving around & all that jazz
 alias back='cd $OLDPWD'
 alias ..="cd .."
@@ -202,3 +198,14 @@ alias migrate='python manage.py migrate'
 alias runenv='source env/bin/activate'
 alias pinstall='pip install '
 alias pysmtp='python -m smtpd -n -c DebuggingServer localhost:1025'
+
+## SSH HOSTS
+. ~/.ssh_hosts
+
+export PATH=$PATH:/home/nmtsylla/Android/Sdk/platform-tools
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
