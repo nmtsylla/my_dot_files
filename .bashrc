@@ -1,3 +1,10 @@
+export RBENV_ROOT="${HOME}/.rbenv"
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
+fi
+
+
 # System-wide .bashrc file for interactive bash(1) shells.
 
 # To enable the settings / commands in this file for login shells as well,
@@ -161,7 +168,7 @@ alias documents='cd ~/Documents'
 alias downloads='cd ~/Downloads'
 alias books='cd ~/eBooks'
 alias images='cd ~/Images'
-alias ppython='cd ~/PycharmProjects'
+alias ppython='cd ~/python_labs'
 alias pruby='cd ~/rails_workspace'
 alias videos='cd ~/Videos'
 alias localhost='cd /var/www'
@@ -198,12 +205,16 @@ alias migrate='python manage.py migrate'
 alias runenv='source env/bin/activate'
 alias pinstall='pip install '
 alias pysmtp='python -m smtpd -n -c DebuggingServer localhost:1025'
+alias rserve='spring rails s'
+alias rcons='rails c'
 
 ## SSH HOSTS
 . ~/.ssh_hosts
+## DOCKER 
+. ~/.docker
 
-export PATH=$PATH:/home/nmtsylla/Android/Sdk/platform-tools
-
+export PATH=$PATH:/home/nmtsylla/android-sdk-linux/platform-tools:/home/nmtsylla/android-sdk-linux/tools 
+JAVA_HOME=/opt/jdk1.8.0_40
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
